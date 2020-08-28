@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style/main.css">
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <div >
+            <h2>{{ title }}</h2>
+            <hr />
+            <p>{{ description }} </p>
+            <form action="" method="post">
+                {% for way in ways %}
+                    <p><button type="submit" name="actquest" value="{{ way.id }}">{{ way.description }}</button></p>
+                {% endfor %}
+                {% if id!=1 %}
+                <p><button type="submit" name="actquest" value="revers">Вернутся назад</button></p>
+                <p><button type="submit" name="actquest" value="start">Начать сначала</button></p>
+                {% endif %}
+            </form>
+            <p>История:
+                {% for hist in history %}
+                {{ hist }}=>
+                {% endfor %}
+            </p>
+        </div>
+    </body>
+</html>
